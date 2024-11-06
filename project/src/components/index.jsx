@@ -9,14 +9,11 @@ import { motion } from "framer-motion";
 const Index = () => {
   const [type, setType] = useState("All");
   const users = useSelector((state) => state.authSlice.users);
-  console.log(users);
   const cources = users
     .filter((user) => user.courses && user.courses.length > 0)
     .flatMap((user) =>
       user.courses.map((course) => ({ ...course, userId: user.id }))
     );
-  console.log(cources);
-
   const typeHandler = (type) => {
     setType(type);
   };
@@ -177,16 +174,16 @@ const Index = () => {
                     alt={`cource ${index + 1}`}
                     className="w-[400px] h-[200px] max-lg:h-[150px] object-cover` rounded-lg"
                   />
-                  <p className="p-1 font-[500] text-sm">{item.title}</p>
+                  <p className="p-1 font-[500] text-sm">{item.titel}</p>
                   <div className="px-1 flex justify-between my-2">
                     <div className="text-[#bdbdbd]  flex items-center">
-                      <i class="fa-solid fa-graduation-cap"></i>
+                      <i className="fa-solid fa-graduation-cap"></i>
                       <p className="ml-2 text-black text-[12px]">
                         Lesson: {item.videos.length}
                       </p>
                     </div>
                     <div className="text-[#bdbdbd] flex items-center">
-                      <i class="fa-solid fa-trophy"></i>
+                      <i className="fa-solid fa-trophy"></i>
                       <p className="ml-2 text-black text-[12px]">
                         {item.difficulty}
                       </p>
@@ -203,7 +200,7 @@ const Index = () => {
                         to={`/${item.type}/cource/${item.userId}/${item.courseId}`}
                         className="px-3 py-2 bg-black rounded-lg text-white flex items-center"
                       >
-                        <span>start course</span>
+                        <span>start</span>
                         <i
                           className="fa-solid fa-angle-right"
                           style={{ marginLeft: "5px", marginTop: "3px" }}
@@ -213,7 +210,7 @@ const Index = () => {
                     <div className="flex justify-center items-center">
                       <p className="mr-[1px]">{item.stars}</p>
                       <i
-                        class="fa-solid fa-star"
+                        className="fa-solid fa-star"
                         style={{ color: "orange" }}
                       ></i>
                     </div>
@@ -232,24 +229,17 @@ const Index = () => {
             At the Academy, we strive to bring together the best professors for
             the best courses
           </p>
-          <motion.div
-            initial={{ rotate: 0 }}
-            whileTap={{ scale: 0.9 }}
-            transition={{ duration: 0.9 }}
-            className="w-full flex justify-center mt-4"
-          >
-            <Link
-              to="/Teach"
-              className="px-3 py-2 bg-black rounded-lg text-white w-fit my-2"
-            >
-              All Instructors
-            </Link>
-          </motion.div>
+          
         </div>
 
-        <div className={` ${users.length > 0 ? ('grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 mx-auto') : ('block')}`}>
-          {
-           users.length > 0 ? (
+        <div
+          className={` ${
+            users.length > 0
+              ? "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 mx-auto"
+              : "block"
+          }`}
+        >
+          {users.length > 0 ? (
             users
               .filter((item) => item.courses.length > 0)
               .map((tech, index) => (
@@ -270,15 +260,30 @@ const Index = () => {
                       to={`/Teach/${tech.id}`}
                       className="px-3 py-2 bg-black rounded-lg text-white flex items-center "
                     >
-                      my profile
+                      profile
                     </Link>
                   </div>
                 </div>
               ))
           ) : (
-              <p className="text-[#e9b0f1] text-xl font-bold text-center">ther is no any Instructor</p>
+            <p className="text-[#e9b0f1] text-xl font-bold text-center">
+              ther is no any Instructor
+            </p>
           )}
         </div>
+        <motion.div
+            initial={{ rotate: 0 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ duration: 0.9 }}
+            className="w-full flex justify-center mt-4"
+          >
+            <Link
+              to="/Teach"
+              className="px-3 py-2 bg-black rounded-lg text-white w-fit my-2"
+            >
+              All Instructors
+            </Link>
+          </motion.div>
       </div>
       <div className="relative my-32 z-[99]">
         <div className="container relative z-10 flex items-start max-sm:items-center  gap-1">
@@ -309,66 +314,65 @@ const Index = () => {
           <div className="w-[20%] h-full bg-[#5a69f2] max-sm:w-[40%] rounded-tl-[40px] rounded-tr-2xl rounded-br-2xl rounded-bl-[90px]"></div>
         </div>
       </div>
-      
+
       <div className="container">
         <div className="relative max-sm:text-center w-fit m-auto mb-4">
           <p className="text-[#e9b0f1] text-4xl font-bold">Top courses</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2">
-          {
-            cources.length > 0 ? (
+          {cources.length > 0 ? (
             cources
-            .filter((item) => item.videos.length > 0)
-            .map((item, index) => (
-              <div
-                key={index}
-                className="p-2 bg-[#fafafa] rounded-lg shadow-lg"
-              >
-                <img
-                  src={item.img}
-                  alt={`course ${index + 1}`}
-                  className="w-full h-[200px] max-lg:h-[150px]  rounded-lg hover:scale-105 hover:shadow-md transition object-cover duration-500"
-                />
-                <p className="p-1 font-[500] text-sm">{item.titel}</p>
-                <div className="px-1 flex justify-between my-2">
-                  <div className="text-[#bdbdbd] flex items-center">
-                    <i className="fa-solid fa-graduation-cap"></i>
-                    <p className="ml-2 text-black text-[12px]">
-                      Lessons: {item.videos.length}
-                    </p>
+              .filter((item) => item.videos.length > 0)
+              .map((item, index) => (
+                <div
+                  key={index}
+                  className="p-2 bg-[#fafafa] rounded-lg shadow-lg"
+                >
+                  <img
+                    src={item.img}
+                    alt={`course ${index + 1}`}
+                    className="w-full h-[200px] max-lg:h-[150px]  rounded-lg hover:scale-105 hover:shadow-md transition object-cover duration-500"
+                  />
+                  <p className="p-1 font-[500] text-sm">{item.titel}</p>
+                  <div className="px-1 flex justify-between my-2">
+                    <div className="text-[#bdbdbd] flex items-center">
+                      <i className="fa-solid fa-graduation-cap"></i>
+                      <p className="ml-2 text-black text-[12px]">
+                        Lessons: {item.videos.length}
+                      </p>
+                    </div>
+                    <div className="text-[#bdbdbd] flex items-center">
+                      <i className="fa-solid fa-trophy"></i>
+                      <p className="ml-2 text-black text-[12px]">
+                        Rating: {item.type}
+                      </p>
+                    </div>
                   </div>
-                  <div className="text-[#bdbdbd] flex items-center">
-                    <i className="fa-solid fa-trophy"></i>
-                    <p className="ml-2 text-black text-[12px]">
-                      Rating: {item.type}
-                    </p>
+                  <div className="flex justify-between p-1 pt-2 items-center">
+                    <motion.div initial={{}} whileTap={{ scale: 0.9 }}>
+                      <Link
+                        to={`cource/${item.userId}/${item.courseId}`}
+                        className="px-3 py-2 bg-black rounded-lg text-white flex items-center"
+                      >
+                        <span>Start Course</span>
+                        <i className="fa-solid fa-angle-right ml-2"></i>
+                      </Link>
+                    </motion.div>
+                    <div className="flex items-center">
+                      <p className="mr-[1px]">{item.star}</p>
+                      <i
+                        className="fa-solid fa-star"
+                        style={{ color: "orange" }}
+                      ></i>
+                    </div>
                   </div>
                 </div>
-                <div className="flex justify-between p-1 pt-2 items-center">
-                  <motion.div initial={{}} whileTap={{ scale: 0.9 }}>
-                    <Link
-                      to={`cource/${item.userId}/${item.courseId}`}
-                      className="px-3 py-2 bg-black rounded-lg text-white flex items-center"
-                    >
-                      <span>Start Course</span>
-                      <i className="fa-solid fa-angle-right ml-2"></i>
-                    </Link>
-                  </motion.div>
-                  <div className="flex items-center">
-                    <p className="mr-[1px]">{item.star}</p>
-                    <i
-                      className="fa-solid fa-star"
-                      style={{ color: "orange" }}
-                    ></i>
-                  </div>
-                </div>
-              </div>
-            ))
-
-            ) : (
-              <p className="text-[#e9b0f1] text-xl font-bold text-center">ther is no any Instructor</p>
-            ) 
-          }
+              ))
+          ) : (
+            <p className="text-[#e9b0f1] text-xl font-bold text-center">
+              ther is no any Instructor
+            </p>
+          )}
         </div>
       </div>
     </main>

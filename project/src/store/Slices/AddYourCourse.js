@@ -154,7 +154,7 @@ const Course = createSlice({
       .addCase(updateCourses.fulfilled, (state, action) => {
         state.loading = false;
         state.cource = action.payload.courses; // تحديث الكورسات المسترجعة من السيرفر
-        console.log("Updated course:", action.payload.courses);
+        
       })
       .addCase(updateCourses.rejected, (state, action) => {
         state.loading = false;

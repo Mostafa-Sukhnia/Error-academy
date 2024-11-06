@@ -29,8 +29,24 @@ import CodingIndex from "./components/CodingIndex.jsx";
 import DesignIndex from "./components/DesignIndex.jsx";
 import PhotoShopIndex from "./components/PhotoShopInd.jsx";
 import VideoView from "./pages/VideoView.jsx";
-const root = ReactDOM.createRoot(document.getElementById("root"));
 
+import { initializeApp } from "firebase/app";
+
+// إعداد تكوين Firebase الخاص بك
+const firebaseConfig = {
+  apiKey: "AIzaSyAZ9VgKALKCCr5zvbrZIzrZu9RdfeJyDtM",
+  authDomain: "error-academy.firebaseapp.com",
+  projectId: "error-academy",
+  storageBucket: "error-academy.appspot.com",
+  messagingSenderId: "855802413626",
+  appId: "1:855802413626:web:ab24b4741468be3980eb03",
+  measurementId: "G-71TD915D8T",
+};
+
+// تهيئة Firebase
+initializeApp(firebaseConfig);
+
+// إنشاء تطبيق React Router
 const router = createBrowserRouter([
   {
     path: "/",
@@ -51,10 +67,12 @@ const router = createBrowserRouter([
       {
         path: "cource/:id/:courseId",
         element: <CourceViwe />,
-      },{
-        path:"cource/:id/:courseId/video/:videoId",
-        element:<VideoView/>
-      },{
+      },
+      {
+        path: "cource/:id/:courseId/video/:videoId",
+        element: <VideoView />,
+      },
+      {
         path: ":id",
         element: (
           <Protect>
@@ -99,10 +117,11 @@ const router = createBrowserRouter([
               {
                 path: "cource/:id/:courseId",
                 element: <CourceViwe />,
-              },{
-                path:"cource/:id/:courseId/video/:videoId",
-                element:<VideoView/>
-              }
+              },
+              {
+                path: "cource/:id/:courseId/video/:videoId",
+                element: <VideoView />,
+              },
             ],
           },
           {
@@ -116,10 +135,11 @@ const router = createBrowserRouter([
               {
                 path: "cource/:id/:courseId",
                 element: <CourceViwe />,
-              },{
-                path:"cource/:id/:courseId/video/:videoId",
-                element:<VideoView/>
-              }
+              },
+              {
+                path: "cource/:id/:courseId/video/:videoId",
+                element: <VideoView />,
+              },
             ],
           },
           {
@@ -133,12 +153,13 @@ const router = createBrowserRouter([
               {
                 path: "cource/:id/:courseId",
                 element: <CourceViwe />,
-              },{
-                path:"cource/:id/:courseId/video/:videoId",
-                element:<VideoView/>
-              }
+              },
+              {
+                path: "cource/:id/:courseId/video/:videoId",
+                element: <VideoView />,
+              },
             ],
-          }
+          },
         ],
       },
       {
@@ -174,6 +195,8 @@ const router = createBrowserRouter([
     element: <Signup />,
   },
 ]);
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <Provider store={store}>

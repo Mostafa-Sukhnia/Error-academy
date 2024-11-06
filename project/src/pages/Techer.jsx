@@ -7,7 +7,7 @@ const Techer = () => {
   const { id } = useParams();
   const teachers = useSelector((state) => state.authSlice.users);
   const teacher = teachers.find((teacher) => teacher.id === id);
-  console.log(teacher);
+  
   return (
     <div className="container min-h-[80vh] ">
       {teacher ? (

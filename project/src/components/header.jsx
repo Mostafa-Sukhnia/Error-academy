@@ -33,8 +33,7 @@ const Header = () => {
     }
   };
 
-  console.log(search);
-  console.log(cources);
+
   return (
     <>
       <header className="relative">

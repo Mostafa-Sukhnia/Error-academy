@@ -11,8 +11,7 @@ const Profileind = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.authSlice.loading);
-  console.log("id:", id);
-  console.log("you:", you);
+
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];

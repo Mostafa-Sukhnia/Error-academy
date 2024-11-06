@@ -4,7 +4,7 @@ import { useParams, Link } from "react-router-dom";
 
 const VideoView = () => {
   const { id, courseId, videoId } = useParams();
-  console.log("id", id, "\nidcourcs", courseId, "\nvideoId", videoId);
+
   
   const users = useSelector((state) => state.authSlice.users);
   const user = users?.find((user) => user.id == id);

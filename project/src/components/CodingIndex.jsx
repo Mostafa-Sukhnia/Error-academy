@@ -14,7 +14,7 @@ const Coding = () => {
         .map((course) => ({ ...course, userId: user.id }))
     );
 
-  console.log(codingCourses);
+  
 
   return (
     <div className="container min-h-[80vh]">

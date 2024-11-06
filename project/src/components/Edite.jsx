@@ -33,9 +33,7 @@ const Edite = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log(you);
-    console.log(yourCources);
-    console.log(courseId);
+
     if (yourCources) {
       setAdvertisement(yourCources.advertisement || "unsign");
       setImage(yourCources.img);

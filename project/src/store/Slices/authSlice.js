@@ -133,7 +133,6 @@ const authSlice = createSlice({
       .addCase(getUsers.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
-        console.log(action.error);
       })
       .addCase(loginuser.pending, (state) => {
         state.loading = true;
