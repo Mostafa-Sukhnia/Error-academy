@@ -1,22 +1,25 @@
 # Error Academy
 
 ## Description
-**Error Academy** is a web application designed to help users learn how to handle and debug common errors in web development. This platform provides interactive examples, explanations, and solutions to common programming errors encountered in JavaScript, React, and other web technologies.
+**Error Academy** is a web platform for uploading, managing, and accessing online courses. This platform allows instructors to upload their courses, and students to browse and enroll in courses across various subjects. The main goal is to create an accessible, user-friendly environment for learning and sharing knowledge.
 
-The application serves as an educational tool to enhance your debugging skills and understanding of error handling techniques in modern web development.
+Instructors can upload video content hosted on external cloud storage, while students can explore and enroll in courses. The platform provides an intuitive design for managing and consuming course materials.
 
 ## Features
-- Interactive lessons covering common errors in JavaScript and React.
-- Examples of real-world errors with explanations and solutions.
-- User-friendly interface for learning and practicing debugging techniques.
-- Simple, easy-to-follow design suitable for developers at all levels.
+- Upload and manage courses with video content (stored on external cloud storage).
+- Browse and search for courses by categories or keywords.
+- User accounts for instructors and students with different permissions.
+- Student progress tracking with the ability to mark courses as completed.
+- Responsive design for an optimal experience on both mobile and desktop devices.
 
 ## Technologies Used
 - **Frontend**: React, Tailwind CSS
-- **Backend**: Mock API (if applicable, can be extended in the future)
-- **Hosting**: Local development using Vite
+- **Backend**: JSON Server (mock API for development purposes)
+- **Cloud Storage**: External cloud service (e.g., AWS S3, Google Cloud Storage, etc.) for storing course videos.
+- **Hosting**: Local development using Vite, Firebase/Netlify for deployment
 
 ## Installation
+
 1. Clone the repository:
    ```bash
    git clone https://github.com/Mostafa-Sukhnia/Error-academy.git
