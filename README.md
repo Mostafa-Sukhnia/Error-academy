@@ -9,7 +9,6 @@ Instructors can upload video content hosted on external cloud storage, while stu
 - Upload and manage courses with video content (stored on external cloud storage).
 - Browse and search for courses by categories or keywords.
 - User accounts for instructors and students with different permissions.
-- Student progress tracking with the ability to mark courses as completed.
 - Responsive design for an optimal experience on both mobile and desktop devices.
 
 ## Technologies Used
